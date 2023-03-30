@@ -9,7 +9,6 @@
 </head>
 <body>
 <h1>Pizzas</h1>
-<div th:text="${list}"></div>
 <table>
     <thead>
     <tr>
@@ -19,15 +18,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="pizza : ${list}" th:object="$pizza">
-        <td th:text="${name}"></td>
-        <td th:text="${description}"></td>
+    <tr th:each="pizza : ${list}" th:object="${pizza}">
+        <td th:text="*{name}"></td>
+        <td th:text="*{description}"></td>
     </tr>
     </tbody>
-    <tr th:each="pizza : ${list}" th:object="$pizza">
-        <td th:text="${name}"></td>
-        <td th:text="${description}"></td>
-    </tr>
 </table>
 </body>
 </html>
