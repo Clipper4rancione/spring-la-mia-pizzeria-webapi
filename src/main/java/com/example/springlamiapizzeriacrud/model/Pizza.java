@@ -10,6 +10,7 @@ public class Pizza {
     private Integer id;
     private String name;
     private String description;
+    private Double price;
 
     public Integer getId() {
         return id;
@@ -35,4 +36,14 @@ public class Pizza {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }
+
+
