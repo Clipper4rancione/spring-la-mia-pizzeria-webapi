@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="/fragments/resources :: head"></th:block>
+    <title>Pizza Create</title>
+</head>
+<body>
+<h1 class="text-center">Add a Pizza</h1>
+
+<div class="container">
+    <form action="@{/pizzas/create}" id="pizza-form" method="post" th:object="${pizza}">
+        
+    </form>
+</div>
+
+
+</body>
+</html>

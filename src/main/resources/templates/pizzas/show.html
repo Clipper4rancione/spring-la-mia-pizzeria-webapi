@@ -8,7 +8,10 @@
 <h1 class="text-center" th:text="${pizza.name}"></h1>
 
 <div class="container">
-
+    <h3>Ingredients:</h3>
+    <span th:text="${pizza.description}"></span>
+    <h3>Price:</h3>
+    <span th:text="${pizza.price} + €"></span>
 </div>
 
 
