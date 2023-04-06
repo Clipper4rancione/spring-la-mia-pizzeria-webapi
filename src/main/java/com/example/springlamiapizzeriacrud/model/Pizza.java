@@ -37,6 +37,17 @@ public class Pizza {
         this.description = description;
     }
 
+    public Pizza() {
+        super();
+    }
+
+    public Pizza(Integer id, String name, String description, Double price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
     public Double getPrice() {
         return price;
     }

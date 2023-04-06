@@ -8,7 +8,7 @@
 <h1 class="text-center">Add a Pizza</h1>
 
 <div class="container">
-    <form action="*{/pizzas/create}" id="pizza-form" method="post" th:object="${pizza}"
+    <form id="pizza-form" method="post" th:object="${pizza}" th:action="@{/pizzas/create}"
           class="row flex-column align-items-center">
         <div class="mb-3 col-6">
             <label for="name" class="form-label">Pizza Name</label>
