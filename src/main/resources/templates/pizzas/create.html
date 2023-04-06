@@ -8,8 +8,27 @@
 <h1 class="text-center">Add a Pizza</h1>
 
 <div class="container">
-    <form action="@{/pizzas/create}" id="pizza-form" method="post" th:object="${pizza}">
-        
+    <form action="*{/pizzas/create}" id="pizza-form" method="post" th:object="${pizza}"
+          class="row flex-column align-items-center">
+        <div class="mb-3 col-6">
+            <label for="name" class="form-label">Pizza Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Insert pizza name here.." th:field="*{name}">
+        </div>
+        <div class="mb-3 col-6">
+            <label for="description" class="form-label">Ingredients</label>
+            <input type="text" class="form-control" id="description" placeholder="Insert pizza ingredients here.."
+                   th:field="*{description}">
+        </div>
+        <div class="mb-3 col-6">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" placeholder="Insert pizza price here.."
+                   th:field="*{price}">
+        </div>
+        <div class="col-8 text-center">
+            <button type="submit" class="btn btn-success btn-sm col-3">Add Pizza</button>
+            <a th:href="@{/pizzas}" class="btn btn-warning btn-sm col-3">Back</a>
+        </div>
+
     </form>
 </div>
 

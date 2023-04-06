@@ -48,7 +48,12 @@ public class PizzaController {
     }
 
     @PostMapping("/create")
-    public String doCreate() {
+    public String doCreate(Pizza pizzaForm) {
+        pizzaRepository.save(pizzaForm);
+        Pizza pizzaToPersist = new Pizza();
+        pizzaToPersist.setName(pizzaForm.getName());
+        pizzaToPersist.setDescription(pizzaForm.getDescription());
+        pizzaToPersist.setPrice(pizzaForm.getPrice());
         return "redirect:/pizzas";
     }
 }
