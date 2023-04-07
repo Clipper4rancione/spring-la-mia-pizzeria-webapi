@@ -2,12 +2,14 @@ package com.example.springlamiapizzeriacrud.model;
 
 import jakarta.persistence.*;
 
+
 @Entity
 @Table(name = "pizzas")
 public class Pizza {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
     private String description;
     private Double price;

@@ -38,6 +38,11 @@ public class PizzaController {
 
     }
 
+    @PostMapping("/edit/{id}")
+    public String(@PathVariable Integer id, @ModelAttribute("pizza") Pizza pizzaForm) {
+
+    }
+
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("pizza", new Pizza());
