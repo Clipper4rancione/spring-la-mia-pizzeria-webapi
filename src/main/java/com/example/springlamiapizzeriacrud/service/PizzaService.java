@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -27,5 +28,14 @@ public class PizzaService {
 
     public List<Pizza> getAllPizzas() {
         return pizzaRepository.findAll(Sort.by("name"));
+    }
+
+    public Pizza findById(Integer id) {
+        Optional<Pizza> result = pizzaRepository.findById(id);
+        if (result.isPresent()) {
+            return result.get();
+        } else {
+            throw new RuntimeException("Book with id " + id + " not found");
+        }
     }
 }

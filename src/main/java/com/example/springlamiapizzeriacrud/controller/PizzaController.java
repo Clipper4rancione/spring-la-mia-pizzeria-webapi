@@ -32,12 +32,12 @@ public class PizzaController {
 
     @GetMapping("/{id}")
     public String show(@PathVariable Integer id, Model model) {
-        Optional<Pizza> result = pizzaRepository.findById(id);
-        if (result.isPresent()) {
-            model.addAttribute("pizza", result.get());
+        try {
+            Pizza pizza = pizzaService.findById(id);
+            model.addAttribute("pizza", pizza);
             return "/pizzas/show";
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Pizza with " + id + " not found");
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Book with id \" + id + \" not found");
         }
 
     }
