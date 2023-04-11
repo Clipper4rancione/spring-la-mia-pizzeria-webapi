@@ -14,10 +14,9 @@ import java.util.Optional;
 public class PizzaService {
 
     @Autowired
-    static
     PizzaRepository pizzaRepository;
 
-    public static Pizza createPizza(Pizza pizzaForm) {
+    public Pizza createPizza(Pizza pizzaForm) {
         Pizza pizzaToPersist = new Pizza();
         pizzaToPersist.setName(pizzaForm.getName());
         pizzaToPersist.setDescription(pizzaForm.getDescription());

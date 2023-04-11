@@ -25,7 +25,8 @@ public class PizzaController {
 
     @GetMapping
     public String index(Model model) {
-        List<Pizza> pizzas = pizzaRepository.findAll();
+        List<Pizza> pizzas;
+        pizzas = pizzaService.getAllPizzas();
         model.addAttribute("list", pizzas);
         return "/pizzas/index";
     }
@@ -52,7 +53,7 @@ public class PizzaController {
     @PostMapping("/create")
     public String doCreate(@ModelAttribute("pizza") Pizza pizzaForm) {
 
-        PizzaService.createPizza(pizzaForm);
+        pizzaService.createPizza(pizzaForm);
         return "redirect:/pizzas";
     }
 }
