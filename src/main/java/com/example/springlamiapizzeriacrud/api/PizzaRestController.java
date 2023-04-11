@@ -18,6 +18,6 @@ public class PizzaRestController {
 
     @GetMapping
     public List<Pizza> list() {
-        return pizzaController.index();
+        return null;
     }
 }

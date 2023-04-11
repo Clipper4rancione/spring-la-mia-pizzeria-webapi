@@ -2,6 +2,7 @@ package com.example.springlamiapizzeriacrud.controller;
 
 import com.example.springlamiapizzeriacrud.model.Pizza;
 import com.example.springlamiapizzeriacrud.repository.PizzaRepository;
+import com.example.springlamiapizzeriacrud.service.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,9 @@ public class PizzaController {
 
     @Autowired
     private PizzaRepository pizzaRepository;
+
+    @Autowired
+    private PizzaService pizzaService;
 
     @GetMapping
     public String index(Model model) {
@@ -47,11 +51,8 @@ public class PizzaController {
 
     @PostMapping("/create")
     public String doCreate(@ModelAttribute("pizza") Pizza pizzaForm) {
-        pizzaRepository.save(pizzaForm);
-        Pizza pizzaToPersist = new Pizza();
-        pizzaToPersist.setName(pizzaForm.getName());
-        pizzaToPersist.setDescription(pizzaForm.getDescription());
-        pizzaToPersist.setPrice(pizzaForm.getPrice());
+
+        PizzaService.createPizza(pizzaForm);
         return "redirect:/pizzas";
     }
 }
