@@ -4,10 +4,7 @@ import com.example.springlamiapizzeriacrud.controller.PizzaController;
 import com.example.springlamiapizzeriacrud.model.Pizza;
 import com.example.springlamiapizzeriacrud.service.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +16,17 @@ public class PizzaRestController {
     @Autowired
     private PizzaService pizzaService;
 
+    // LISTA DI TUTTE LE PIZZE
+
     @GetMapping
     public List<Pizza> list() {
         return pizzaService.getAllPizzas();
     }
+
+    // SHOW DELLA SINGOLA PIZZA
+    @GetMapping("/{id}")
+    public Pizza getById(@PathVariable Integer id) {
+        return pizzaService.findById(id);
+    }
+
 }
