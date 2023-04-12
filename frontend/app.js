@@ -1,1 +1,11 @@
-console.log('ciao');
+const { createApp } = Vue;
+
+createApp({
+    data(){
+        return{
+            message: "ciao vue",
+
+        }
+    },
+    
+})
